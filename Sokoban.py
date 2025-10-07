@@ -2,35 +2,54 @@ import pygame as pg
 import time
 
 class Sokoban:
-    def __init__(self, window_size):
+    def __init__(self, window_size, agent_choice):
         self.window_size = window_size
         self.image_size = window_size / 9
         self.level = 1
         self.show_level = True
 
-
         self.window = pg.display.set_mode((window_size, window_size))
 
         pg.font.init()
         self.font = pg.font.SysFont('Courier New', 50, bold=True)
+        
+        # Bloco de segurança para carregar imagens
+        try:
+            # Carrega as imagens dos dois agentes
+            agent1_img = pg.image.load('./assets/agente1.png')
+            agent1_on_target_img = pg.image.load('./assets/a1_target.png')
 
+            agent2_img = pg.image.load('./assets/agente2.png') 
+            agent2_on_target_img = pg.image.load('./assets/a2_target.png')
 
-        self.agent = pg.image.load('./assets/agente1.png')
-        self.agent = pg.transform.scale(self.agent, (self.image_size, self.image_size))
-        self.agent_on_target = pg.image.load('./assets/a1_target.png')
-        self.agent_on_target = pg.transform.scale(self.agent_on_target, (self.image_size, self.image_size))
-        self.box_on_target = pg.image.load('./assets/box_target.png')
+            # Carrega o resto das imagens
+            self.box_on_target = pg.image.load('./assets/box_target.png')
+            self.box = pg.image.load('./assets/box.png')
+            self.floor = pg.image.load('./assets/floor.png')
+            self.target = pg.image.load('./assets/target.png')
+            self.tree = pg.image.load('./assets/tree.png')
+            self.wall = pg.image.load('./assets/wall.png')
+
+        except pg.error as e:
+            print("ERRO AO CARREGAR IMAGEM! Verifique o nome do arquivo.")
+            print(f"Detalhe do erro: {e}")
+            quit() # Encerra o jogo se não achar a imagem
+
+        # Decide qual imagem usar com base na escolha do jogador
+        if agent_choice == 1:
+            self.agent = pg.transform.scale(agent1_img, (self.image_size, self.image_size))
+            self.agent_on_target = pg.transform.scale(agent1_on_target_img, (self.image_size, self.image_size))
+        elif agent_choice == 2:
+            self.agent = pg.transform.scale(agent2_img, (self.image_size, self.image_size))
+            self.agent_on_target = pg.transform.scale(agent2_on_target_img, (self.image_size, self.image_size))
+
         self.box_on_target = pg.transform.scale(self.box_on_target, (self.image_size, self.image_size))
-        self.box = pg.image.load('./assets/box.png')
         self.box = pg.transform.scale(self.box, (self.image_size, self.image_size))
-        self.floor = pg.image.load('./assets/floor.png')
         self.floor = pg.transform.scale(self.floor, (self.image_size, self.image_size))
-        self.target = pg.image.load('./assets/target.png')
         self.target = pg.transform.scale(self.target, (self.image_size, self.image_size))
-        self.tree = pg.image.load('./assets/tree.png')
         self.tree = pg.transform.scale(self.tree, (self.image_size, self.image_size))
-        self.wall = pg.image.load('./assets/wall.png')
         self.wall = pg.transform.scale(self.wall, (self.image_size, self.image_size))
+
         
         
         self.main_level = [['.', '.', '.', '.', '.', '.', '.', '.', '.'],
@@ -360,28 +379,77 @@ class Sokoban:
             time.sleep(1)
 
 
-sokoban = Sokoban(504)
+WINDOW_SIZE = 504
+pg.init()
+window = pg.display.set_mode((WINDOW_SIZE, WINDOW_SIZE))
+pg.display.set_caption("Sokoban - Seleção de Agente")
 
-while True:
-    for event in pg.event.get():
-        if event.type == pg.QUIT:
-            pg.quit()
-            quit()
-        if event.type == pg.KEYDOWN:
-            sokoban.move(pg.key.name(event.key))
-            if pg.key.name(event.key) == 'r':
-                sokoban.select_level()
-            if pg.key.name(event.key) == 'escape':
-                pg.quit()
-                quit()
+# Carrega as imagens para a tela de seleção
+agent1_select_img = pg.transform.scale(pg.image.load('./assets/agente1.png'), (100, 100))
+# Altere o nome do arquivo se for diferente
+agent2_select_img = pg.transform.scale(pg.image.load('./assets/agente2.png'), (100, 100)) 
 
-    # Game
-    sokoban.clear_window()
+# Cria retângulos para detectar cliques do mouse
+agent1_rect = agent1_select_img.get_rect(center=(WINDOW_SIZE / 4, WINDOW_SIZE / 2))
+agent2_rect = agent2_select_img.get_rect(center=(WINDOW_SIZE * 3 / 4, WINDOW_SIZE / 2))
 
-    sokoban.new_level()
+# Fontes para o menu
+menu_font = pg.font.SysFont('Courier New', 40, bold=True)
+title_text = menu_font.render('Escolha seu Agente', True, (0, 0, 0))
+title_rect = title_text.get_rect(center=(WINDOW_SIZE / 2, WINDOW_SIZE / 4))
 
-    sokoban.draw_map()
+# Variáveis de controle do jogo
+game_state = 'MENU' # Inicia no estado de MENU
+sokoban_game = None # O objeto do jogo ainda não foi criado
+running = True
 
-    sokoban.is_level_completed()
+while running:
+    # --- LÓGICA DO MENU ---
+    if game_state == 'MENU':
+        for event in pg.event.get():
+            if event.type == pg.QUIT:
+                running = False
+            if event.type == pg.MOUSEBUTTONDOWN:
+                # Verifica se o clique foi no agente 1
+                if agent1_rect.collidepoint(event.pos):
+                    print("Agente 1 selecionado!")
+                    sokoban_game = Sokoban(WINDOW_SIZE, 1) # Cria o jogo com o agente 1
+                    game_state = 'GAME' # Muda o estado para JOGO
+                # Verifica se o clique foi no agente 2
+                if agent2_rect.collidepoint(event.pos):
+                    print("Agente 2 selecionado!")
+                    sokoban_game = Sokoban(WINDOW_SIZE, 2) # Cria o jogo com o agente 2
+                    game_state = 'GAME' # Muda o estado para JOGO
+        
+        # Desenha a tela do menu
+        window.fill((180, 210, 255)) # Cor de fundo azul claro
+        window.blit(title_text, title_rect)
+        window.blit(agent1_select_img, agent1_rect)
+        window.blit(agent2_select_img, agent2_rect)
+        
+    # --- LÓGICA DO JOGO (seu código original) ---
+    elif game_state == 'GAME':
+        for event in pg.event.get():
+            if event.type == pg.QUIT:
+                running = False
+            if event.type == pg.KEYDOWN:
+                key_name = pg.key.name(event.key)
+                if key_name in ['w', 'a', 's', 'd', 'up', 'down', 'left', 'right']:
+                    sokoban_game.move(key_name)
+                elif key_name == 'r':
+                    sokoban_game.select_level()
+                elif key_name == 'escape':
+                    running = False
+
+        # Game Logic
+        sokoban_game.clear_window()
+        sokoban_game.new_level()
+        sokoban_game.draw_map()
+        sokoban_game.is_level_completed()
     
     pg.display.update()
+
+pg.quit()
+quit()
+
+
