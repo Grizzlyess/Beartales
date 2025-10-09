@@ -13,6 +13,7 @@ class Sokoban:
         pg.font.init()
         self.font = pg.font.SysFont('Courier New', 50, bold=True)
         
+        
         # Carregar as imagens
         try:
             
@@ -67,7 +68,7 @@ class Sokoban:
                         ['t', 't', 'w', 'f', 'w', 'w', 'w', 'w', 't'],
                         ['w', 'w', 'w', 'b', 'f', 'b', 'o', 'w', 't'],
                         ['w', 'o', 'f', 'b', 'a', 'w', 'w', 'w', 't'],
-                        ['w', 't', 'w', 'w', 'b', 'w', 't', 't', 't'],
+                        ['w', 'w', 'w', 'w', 'b', 'w', 't', 't', 't'],
                         ['t', 't', 't', 'w', 'o', 'w', 't', 't', 't'],
                         ['t', 't', 't', 'w', 'w', 'w', 't', 't', 't'],
                         ['t', 't', 't', 't', 't', 't', 't', 't', 't']]
@@ -324,6 +325,12 @@ WINDOW_SIZE = 504
 pg.init()
 window = pg.display.set_mode((WINDOW_SIZE, WINDOW_SIZE))
 pg.display.set_caption("Sokoban - Seleção de Agente")
+
+#coloca a musica
+pg.mixer.init()
+pg.mixer.music.load('./assets/som.mp3')
+pg.mixer.music.set_volume(0.5)
+pg.mixer.music.play(-1)
 
 # Carrega as imagens para o menu
 agent1_select_img = pg.transform.scale(pg.image.load('./assets/op11.png'), (200, 200))
