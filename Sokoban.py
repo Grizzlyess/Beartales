@@ -13,16 +13,16 @@ class Sokoban:
         pg.font.init()
         self.font = pg.font.SysFont('Courier New', 50, bold=True)
         
-        # Bloco de segurança para carregar imagens
+        # Carregar as imagens
         try:
-            # Carrega as imagens dos dois agentes
+            
             agent1_img = pg.image.load('./assets/agente1.png')
             agent1_on_target_img = pg.image.load('./assets/a1_target.png')
 
             agent2_img = pg.image.load('./assets/agente2.png') 
             agent2_on_target_img = pg.image.load('./assets/a2_target.png')
 
-            # Carrega o resto das imagens
+           
             self.box_on_target = pg.image.load('./assets/box_target.png')
             self.box = pg.image.load('./assets/box.png')
             self.floor = pg.image.load('./assets/floor.png')
@@ -35,7 +35,7 @@ class Sokoban:
             print(f"Detalhe do erro: {e}")
             quit() # Encerra o jogo se não achar a imagem
 
-        # Decide qual imagem usar com base na escolha do jogador
+        # decide qual ursinho vai ser usado
         if agent_choice == 1:
             self.agent = pg.transform.scale(agent1_img, (self.image_size, self.image_size))
             self.agent_on_target = pg.transform.scale(agent1_on_target_img, (self.image_size, self.image_size))
@@ -51,7 +51,7 @@ class Sokoban:
         self.wall = pg.transform.scale(self.wall, (self.image_size, self.image_size))
 
         
-        
+        #desenha os niveis
         self.main_level = [['.', '.', '.', '.', '.', '.', '.', '.', '.'],
                           ['.', '.', '.', '.', '.', '.', '.', '.', '.'],
                           ['.', '.', '.', '.', '.', '.', '.', '.', '.'],
@@ -296,19 +296,28 @@ class Sokoban:
             self.show_level = False
             self.select_level()
 
+
     def is_level_completed(self):
         count = 0
-        for y in  range(9):
-            for x in  range(9):
+        for y in range(9):
+            for x in range(9):
                 if self.main_level[y][x] == 'b':
                     count += 1
-        if count == 0:
+        
+        if count == 0: 
             self.show_level = True
             self.level += 1
-            if self.level == 3:
-                self.level = 1
+            
+            # conta os niveis
+            if self.level == 11:
+                pg.display.update() 
+                time.sleep(2)       
+                return True        
+            
             pg.display.update()
             time.sleep(1)
+            
+        return False
 
 
 WINDOW_SIZE = 504
@@ -316,7 +325,7 @@ pg.init()
 window = pg.display.set_mode((WINDOW_SIZE, WINDOW_SIZE))
 pg.display.set_caption("Sokoban - Seleção de Agente")
 
-# Carrega as imagens para a tela de seleção
+# Carrega as imagens para o menu
 agent1_select_img = pg.transform.scale(pg.image.load('./assets/op11.png'), (200, 200))
 agent2_select_img = pg.transform.scale(pg.image.load('./assets/op22.png'), (200, 200)) 
 
@@ -325,6 +334,12 @@ logo_img = pg.transform.scale(logo_img, (200, 50))
 logo_rect = logo_img.get_rect()
 logo_rect.centerx = WINDOW_SIZE / 2 
 logo_rect.top = 10 
+
+#tela final
+final_screen_img = pg.image.load('./assets/final.png') 
+final_screen_img = pg.transform.scale(final_screen_img, (WINDOW_SIZE, WINDOW_SIZE)) 
+final_screen_rect = final_screen_img.get_rect(topleft=(0, 0)) 
+
 
 # cliques do mouse
 agent1_rect = agent1_select_img.get_rect(center=(WINDOW_SIZE / 4, WINDOW_SIZE / 2))
@@ -382,8 +397,24 @@ while running:
         sokoban_game.clear_window()
         sokoban_game.new_level()
         sokoban_game.draw_map()
-        sokoban_game.is_level_completed()
-    
+        if sokoban_game.is_level_completed():
+            game_state = 'END_SCREEN'
+        
+        
+    elif game_state == 'END_SCREEN':
+        for event in pg.event.get():
+            if event.type == pg.QUIT:
+                running = False
+            if event.type == pg.MOUSEBUTTONDOWN: 
+                game_state = 'MENU' # Volta para o menu
+            if event.type == pg.KEYDOWN:
+                if event.key == pg.K_ESCAPE: # Sair com ESC
+                    running = False
+
+       
+        window.blit(final_screen_img, final_screen_rect)
+        
+        
     pg.display.update()
 
 pg.quit()
