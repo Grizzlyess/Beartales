@@ -61,7 +61,7 @@ class Sokoban:
                           ['.', '.', '.', '.', '.', '.', '.', '.', '.'],
                           ['.', '.', '.', '.', '.', '.', '.', '.', '.'],
                           ['.', '.', '.', '.', '.', '.', '.', '.', '.']]
-        
+       
         self.level_1 = [['t', 't', 'w', 'w', 'w', 't', 't', 't', 't'],
                         ['t', 't', 'w', 'o', 'w', 't', 't', 't', 't'],
                         ['t', 't', 'w', 'f', 'w', 'w', 'w', 'w', 't'],
@@ -111,6 +111,8 @@ class Sokoban:
                         ['t', 't', 't', 'w', 'w', 'w', 'w', 't', 't'],
                         ['t', 't', 't', 't', 't', 't', 't', 't', 't'],
                         ['t', 't', 't', 't', 't', 't', 't', 't', 't']]
+        
+        
 
         self.level_6 = [['t', 't', 'w', 'w', 'w',   'w', 'w', 't', 't'],
                         ['w', 'w', 'w', 'f', 'f',   'a', 'w', 't', 't'],
@@ -125,15 +127,15 @@ class Sokoban:
         self.level_7 = [['t', 't', 'w', 'w', 'w', 'w', 't', 't', 't'],
                         ['t', 't', 'w', 'o', 'o', 'w', 't', 't', 't'],
                         ['t', 'w', 'w', 'f', 'o', 'w', 'w', 't', 't'],
-                        ['t', 'w', 'f', 'f', 'b', 'o', 'w', 't', 't'],
-                        ['w', 'w', 'f', 'b', 'f', 'f', 'w', 'w', 't'],
+                        ['t', 'w', 'f', 'f', 'b', 'o', 'w', 'w', 't'],
+                        ['w', 'w', 'f', 'b', 'f', 'f', 'f', 'w', 't'],
                         ['w', 'f', 'f', 'w', 'b', 'b', 'f', 'w', 't'],
                         ['w', 'f', 'f', 'a', 'f', 'f', 'f', 'w', 't'],
                         ['w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 't'],
                         ['t', 't', 't', 't', 't', 't', 't', 't', 't']]
 
         self.level_8 = [['w', 'w', 'w', 'w', 'w',   'w', 'w', 'w', 't'],
-                        ['w', 'f', 'f', 'w', 'f',   'f', 'f', 'w', 't'],
+                        ['w', 'f', 'f', 'f', 'f',   'f', 'f', 'w', 't'],
                         ['w', 'a', 'b', 'o', 'o',   'b', 'f', 'w', 't'],
                         ['w', 'f', 'b', 'o', 'bot', 'f', 'w', 'w', 't'],
                         ['w', 'f', 'b', 'o', 'o',   'b', 'f', 'w', 't'],
@@ -146,8 +148,8 @@ class Sokoban:
                         ['w', 'f', 'f', 'f', 'f', 'w', 't', 't', 't'],
                         ['w', 'f', 'b', 'b', 'b', 'w', 'w', 't', 't'],
                         ['w', 'f', 'f', 'w', 'o', 'o', 'w', 'w', 'w'],
-                        ['w', 'w', 'f', 'f', 'o', 'o', 'b', 'f', 'w'],
-                        ['t', 'w', 'f', 'a', 'f', 'f', 'f', 'f', 'w'],
+                        ['w', 'f', 'f', 'f', 'o', 'o', 'b', 'f', 'w'],
+                        ['w', 'w', 'f', 'a', 'f', 'f', 'f', 'f', 'w'],
                         ['t', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w'],
                         ['t', 't', 't', 't', 't', 't', 't', 't', 't'],
                         ['t', 't', 't', 't', 't', 't', 't', 't', 't']]
@@ -162,65 +164,7 @@ class Sokoban:
                          ['w', 'w', 'w', 'w', 'w', 'w', 'w', 't', 't'],
                          ['t', 't', 't', 't', 't', 't', 't', 't', 't']]
 
-        self.level_11 = [['t', 'w', 'w',   'w', 'w', 'w', 't', 't', 't'],
-                         ['t', 'w', 'f',   'a', 'f', 'w', 'w', 'w', 't'],
-                         ['w', 'w', 'f',   'w', 'b', 'f', 'f', 'w', 't'],
-                         ['w', 'f', 'bot', 'o', 'f', 'o', 'f', 'w', 't'],
-                         ['w', 'f', 'f',   'b', 'b', 'f', 'w', 'w', 't'],
-                         ['w', 'w', 'w',   'f', 'w', 'o', 'w', 't', 't'],
-                         ['t', 't', 'w',   'f', 'f', 'f', 'w', 't', 't'],
-                         ['t', 't', 'w',   'w', 'w', 'w', 'w', 't', 't'],
-                         ['t', 't', 't',   't', 't', 't', 't', 't', 't']]
-
-        self.level_12 = [['w', 'w', 'w',   'w', 'w', 'w', 't', 't', 't'],
-                         ['w', 'f', 'f',   'f', 'f', 'w', 't', 't', 't'],
-                         ['w', 'f', 'b',   'f', 'a', 'w', 't', 't', 't'],
-                         ['w', 'w', 'bot', 'f', 'f', 'w', 't', 't', 't'],
-                         ['w', 'f', 'bot', 'f', 'w', 'w', 't', 't', 't'],
-                         ['w', 'f', 'bot', 'f', 'w', 't', 't', 't', 't'],
-                         ['w', 'f', 'bot', 'f', 'w', 't', 't', 't', 't'],
-                         ['w', 'f', 'o',   'f', 'w', 't', 't', 't', 't'],
-                         ['w', 'w', 'w',   'w', 'w', 't', 't', 't', 't']]
-
-        self.level_13 = [['t', 't', 'w', 'w',   'w', 'w', 't', 't', 't'],
-                         ['t', 't', 'w', 'f',   'f', 'w', 't', 't', 't'],
-                         ['w', 'w', 'w', 'b',   'f', 'w', 'w', 't', 't'],
-                         ['w', 'f', 'f', 'bot', 'f', 'a', 'w', 't', 't'],
-                         ['w', 'f', 'f', 'bot', 'f', 'f', 'w', 't', 't'],
-                         ['w', 'f', 'f', 'bot', 'f', 'w', 'w', 't', 't'],
-                         ['w', 'w', 'w', 'bot', 'f', 'w', 't', 't', 't'],
-                         ['t', 't', 'w', 'o',   'w', 'w', 't', 't', 't'],
-                         ['t', 't', 'w', 'w',   'w', 't', 't', 't', 't']]
-
-        self.level_14 = [['w', 'w', 'w', 'w', 'w', 't', 't', 't', 't'],
-                         ['w', 'f', 'f', 'f', 'w', 'w', 'w', 'w', 'w'],
-                         ['w', 'f', 'w', 'f', 'w', 'f', 'f', 'f', 'w'],
-                         ['w', 'f', 'b', 'f', 'f', 'f', 'b', 'f', 'w'],
-                         ['w', 'o', 'o', 'w', 'b', 'w', 'b', 'w', 'w'],
-                         ['w', 'o', 'a', 'b', 'f', 'f', 'f', 'w', 't'],
-                         ['w', 'o', 'o', 'f', 'f', 'w', 'w', 'w', 't'],
-                         ['w', 'w', 'w', 'w', 'w', 'w', 't', 't', 't'],
-                         ['t', 't', 't', 't', 't', 't', 't', 't', 't']]
-
-        self.level_15 = [['t', 'w', 'w', 'w', 'w', 'w', 'w', 't', 't'],
-                         ['t', 'w', 'f', 'f', 'f', 'f', 'w', 'w', 't'],
-                         ['w', 'w', 'o', 'w', 'w', 'b', 'f', 'w', 't'],
-                         ['w', 'f', 'o', 'o', 'b', 'f', 'f', 'w', 't'],
-                         ['w', 'f', 'f', 'w', 'b', 'f', 'f', 'w', 't'],
-                         ['w', 'f', 'f', 'a', 'f', 'w', 'w', 'w', 't'],
-                         ['w', 'w', 'w', 'w', 'w', 'w', 't', 't', 't'],
-                         ['t', 't', 't', 't', 't', 't', 't', 't', 't'],
-                         ['t', 't', 't', 't', 't', 't', 't', 't', 't']]
-
-        self.level_16 = [['w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w'],
-                         ['w', 'o', 'f', 'f', 'o', 'f', 'f', 'o', 'w'],
-                         ['w', 'f', 'f', 'f', 'f', 'f', 'f', 'f', 'w'],
-                         ['w', 'f', 'f', 'b', 'b', 'b', 'f', 'f', 'w'],
-                         ['w', 'o', 'f', 'b', 'a', 'b', 'f', 'o', 'w'],
-                         ['w', 'f', 'f', 'b', 'b', 'b', 'f', 'f', 'w'],
-                         ['w', 'f', 'f', 'f', 'f', 'f', 'f', 'f', 'w'],
-                         ['w', 'o', 'f', 'f', 'o', 'f', 'f', 'o', 'w'],
-                         ['w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w']]
+        
         
     def clear_window(self):
         pg.draw.rect(self.window, (255, 255, 255), (0, 0, self.window.get_width(), self.window.get_height()))
@@ -251,19 +195,7 @@ class Sokoban:
             self.copy_level(self.level_9)
         elif self.level == 10:
             self.copy_level(self.level_10)
-        elif self.level == 11:
-            self.copy_level(self.level_11)
-        elif self.level == 12:
-            self.copy_level(self.level_12)
-        elif self.level == 13:
-            self.copy_level(self.level_13)
-        elif self.level == 14:
-            self.copy_level(self.level_14)
-        elif self.level == 15:
-            self.copy_level(self.level_15)
-        elif self.level == 16:
-            self.copy_level(self.level_16)
-            
+        
             
     def draw_map(self):
         for y in  range(9):
@@ -373,7 +305,7 @@ class Sokoban:
         if count == 0:
             self.show_level = True
             self.level += 1
-            if self.level == 17:
+            if self.level == 3:
                 self.level = 1
             pg.display.update()
             time.sleep(1)
@@ -385,49 +317,54 @@ window = pg.display.set_mode((WINDOW_SIZE, WINDOW_SIZE))
 pg.display.set_caption("Sokoban - Seleção de Agente")
 
 # Carrega as imagens para a tela de seleção
-agent1_select_img = pg.transform.scale(pg.image.load('./assets/agente1.png'), (100, 100))
-# Altere o nome do arquivo se for diferente
-agent2_select_img = pg.transform.scale(pg.image.load('./assets/agente2.png'), (100, 100)) 
+agent1_select_img = pg.transform.scale(pg.image.load('./assets/op11.png'), (200, 200))
+agent2_select_img = pg.transform.scale(pg.image.load('./assets/op22.png'), (200, 200)) 
 
-# Cria retângulos para detectar cliques do mouse
+logo_img = pg.image.load('./assets/logo.png') 
+logo_img = pg.transform.scale(logo_img, (200, 50)) 
+logo_rect = logo_img.get_rect()
+logo_rect.centerx = WINDOW_SIZE / 2 
+logo_rect.top = 10 
+
+# cliques do mouse
 agent1_rect = agent1_select_img.get_rect(center=(WINDOW_SIZE / 4, WINDOW_SIZE / 2))
 agent2_rect = agent2_select_img.get_rect(center=(WINDOW_SIZE * 3 / 4, WINDOW_SIZE / 2))
 
-# Fontes para o menu
+
 menu_font = pg.font.SysFont('Courier New', 40, bold=True)
-title_text = menu_font.render('Escolha seu Agente', True, (0, 0, 0))
+title_text = menu_font.render('Escolha seu ursinho', True, (0, 0, 0))
 title_rect = title_text.get_rect(center=(WINDOW_SIZE / 2, WINDOW_SIZE / 4))
 
-# Variáveis de controle do jogo
-game_state = 'MENU' # Inicia no estado de MENU
-sokoban_game = None # O objeto do jogo ainda não foi criado
+
+game_state = 'MENU' 
+sokoban_game = None 
 running = True
 
 while running:
-    # --- LÓGICA DO MENU ---
     if game_state == 'MENU':
         for event in pg.event.get():
             if event.type == pg.QUIT:
                 running = False
             if event.type == pg.MOUSEBUTTONDOWN:
-                # Verifica se o clique foi no agente 1
+                # Verifica se o clique foi na marsha
                 if agent1_rect.collidepoint(event.pos):
                     print("Agente 1 selecionado!")
-                    sokoban_game = Sokoban(WINDOW_SIZE, 1) # Cria o jogo com o agente 1
-                    game_state = 'GAME' # Muda o estado para JOGO
-                # Verifica se o clique foi no agente 2
+                    sokoban_game = Sokoban(WINDOW_SIZE, 1) 
+                    game_state = 'GAME' 
+                # Verifica se o clique foi no Levy
                 if agent2_rect.collidepoint(event.pos):
                     print("Agente 2 selecionado!")
-                    sokoban_game = Sokoban(WINDOW_SIZE, 2) # Cria o jogo com o agente 2
+                    sokoban_game = Sokoban(WINDOW_SIZE, 2) 
                     game_state = 'GAME' # Muda o estado para JOGO
         
         # Desenha a tela do menu
-        window.fill((180, 210, 255)) # Cor de fundo azul claro
-        window.blit(title_text, title_rect)
-        window.blit(agent1_select_img, agent1_rect)
-        window.blit(agent2_select_img, agent2_rect)
+        window.fill((180, 210, 255))                  
+        window.blit(logo_img, logo_rect)              
+        window.blit(title_text, title_rect)          
+        window.blit(agent1_select_img, agent1_rect)   
+        window.blit(agent2_select_img, agent2_rect) 
         
-    # --- LÓGICA DO JOGO (seu código original) ---
+        
     elif game_state == 'GAME':
         for event in pg.event.get():
             if event.type == pg.QUIT:
