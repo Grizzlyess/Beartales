@@ -79,5 +79,5 @@ Garanta que a estrutura de arquivos esteja correta, com o script principal e a p
 ### 5️⃣ Execute o Jogo!
 
 Navegue até a pasta do projeto  e execute:
-`python Sokoban.py`
+   `python Sokoban.py`
 >🎉 **Pronto!** Agora é só se divertir e ajudar os ursinhos a transformar tudo em ouro.
