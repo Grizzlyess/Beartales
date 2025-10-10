@@ -26,9 +26,6 @@ Sua missão é **ajudar os irmãos a empurrar cada caixa até a poça correspond
 
 * **Seleção de Personagem:** Escolha jogar com a **Marsha** ou com o **Levy Jr.** no menu inicial!
 * **16 Níveis Desafiadores:** Quebra-cabeças que testarão sua lógica e planejamento estratégico.
-* **Trilha Sonora Imersiva:** Uma música de fundo contínua para manter o clima mágico da floresta.
-* **Telas de Menu e Vitória:** Uma experiência de jogo completa, com início, meio e fim.
-* **Gráficos Pixel Art Charmosos:** Um visual simples e cativante que dá vida ao universo de Beartales.
 * **Controles Simples e Intuitivos:** Fácil de aprender, difícil de dominar.
 
 ---
@@ -65,8 +62,7 @@ Com o Python instalado, você precisará da biblioteca **Pygame**. Instale-a com
 ### 3️⃣ Baixe os Arquivos do Jogo
 
 Clone este repositório para a sua máquina local ou baixe os arquivos como um arquivo ZIP.
-`# Substitua pela URL do seu repositório no GitHub`
-`git clone https://github.com/seu-usuario/beartales.git`
+`git clone https://github.com/Grizzlyess/Beartales.git`
 
 ### 4️⃣ Estrutura de Pastas
 
@@ -75,14 +71,13 @@ Garanta que a estrutura de arquivos esteja correta, com o script principal e a p
     Beartales/
     ├── assets/
     │   ├── agente1.png
-    │   ├── background_music.mp3
-    │   └── ... (e todas as outras imagens e sons)
+    │   ├── som.mp3
+    │   └── ... (etc)
     ├── Sokoban.py
     └── README.md
 
 ### 5️⃣ Execute o Jogo!
 
-Navegue até a pasta do projeto pelo terminal e execute o script:
-`cd Beartales`
+Navegue até a pasta do projeto  e execute:
 `python Sokoban.py`
 >🎉 **Pronto!** Agora é só se divertir e ajudar os ursinhos a transformar tudo em ouro.
