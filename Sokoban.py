@@ -233,6 +233,7 @@ class Sokoban:
 
         agent_new_position = [agent_position[0], agent_position[1]]
         space_ahead = [agent_position[0], agent_position[1]]
+        
 
         if key == 'w' or key == 'up':
             agent_new_position[1] -= 1
@@ -332,6 +333,10 @@ pg.mixer.music.load('./assets/som.mp3')
 pg.mixer.music.set_volume(0.5)
 pg.mixer.music.play(-1)
 
+passo=pg.mixer.Sound("./assets/passos2.ogg")
+last_step_time = 0
+step_interval = 200
+
 # Carrega as imagens para o menu
 agent1_select_img = pg.transform.scale(pg.image.load('./assets/op11.png'), (200, 200))
 agent2_select_img = pg.transform.scale(pg.image.load('./assets/op22.png'), (200, 200)) 
@@ -394,7 +399,11 @@ while running:
             if event.type == pg.KEYDOWN:
                 key_name = pg.key.name(event.key)
                 if key_name in ['w', 'a', 's', 'd', 'up', 'down', 'left', 'right']:
+                    current_time = pg.time.get_ticks() 
                     sokoban_game.move(key_name)
+                    if current_time - last_step_time > step_interval: 
+                        passo.play() 
+                        last_step_time = current_time
                 elif key_name == 'r':
                     sokoban_game.select_level()
                 elif key_name == 'escape':
