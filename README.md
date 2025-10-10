@@ -4,7 +4,7 @@
 >Neste jogo, você ajudará dois irmãos ursos — **Marsha** e **Levy Jr.** — a limpar sua toca de misteriosas **poças d’água encantadas**.  
 >O projeto foi totalmente desenvolvido com base no clássico *Sokoban*, incluindo fases, movimentação e detecção de colisões.
 
-assets/logo.png
+![](assets/logo.png)
 
 ---
 
