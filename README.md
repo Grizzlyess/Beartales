@@ -52,12 +52,18 @@ Sua missão é **ajudar os irmãos a empurrar cada caixa até a poça correspond
 
 Certifique-se de ter o **Python 3** instalado em sua máquina.
 Para verificar, abra o terminal e digite:
-`python --version`
+
+```sh
+       python --version
+```
 
 ### 2️⃣ Instale a Biblioteca Pygame
 
 Com o Python instalado, você precisará da biblioteca **Pygame**. Instale-a com o seguinte comando no seu terminal:
-`pip install pygame`
+
+```sh
+       pip install pygame
+```
 
 ### 3️⃣ Baixe os Arquivos do Jogo
 
@@ -79,5 +85,9 @@ Garanta que a estrutura de arquivos esteja correta, com o script principal e a p
 ### 5️⃣ Execute o Jogo!
 
 Navegue até a pasta do projeto  e execute:
-   `python Sokoban.py`
+
+```sh
+       python Sokoban.py
+```
+   
 >🎉 **Pronto!** Agora é só se divertir e ajudar os ursinhos a transformar tudo em ouro.
