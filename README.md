@@ -96,6 +96,4 @@ Navegue até a pasta do projeto  e execute:
 
 ### Ume versão web está disponível em: 
 
-```sh
-       https://grizzlyess.github.io/beartales-jogo/
-```
+**Jogar Online:** [Acesse o jogo aqui!](https://grizzlyess.github.io/beartales-jogo/)
