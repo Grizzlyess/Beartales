@@ -94,6 +94,4 @@ Navegue até a pasta do projeto  e execute:
    
 >🎉 **Pronto!** Agora é só se divertir e ajudar os ursinhos a transformar tudo em ouro.
 
-### Ume versão web está disponível em: 
-
-**Jogar Online:** [Acesse o jogo aqui!](https://grizzlyess.github.io/beartales-jogo/)
+### Ume versão online está disponível em: [Acesse o jogo aqui!](https://grizzlyess.github.io/beartales-jogo/)
