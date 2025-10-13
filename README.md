@@ -6,7 +6,6 @@
 
 ![](assets/logo.png)
 
-Uma
 
 ---
 
